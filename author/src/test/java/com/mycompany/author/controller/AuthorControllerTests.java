@@ -1,6 +1,5 @@
 package com.mycompany.author.controller;
 
-import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -11,7 +10,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
@@ -30,7 +28,6 @@ import java.util.List;
 public class AuthorControllerTests {
     private static final ObjectMapper om = new ObjectMapper();
 
-    //@Autowired
     private MockMvc mvc;
 
     @Before
@@ -54,7 +51,7 @@ public class AuthorControllerTests {
     }
 
     @Test
-    public void getAuthors() throws Exception {
+    public void when_call_authors_get_all_authors() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/authors").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().json(
@@ -72,14 +69,14 @@ public class AuthorControllerTests {
     }
 
     @Test
-    public void getAuthorById() throws Exception {
+    public void when_call_get_authors_by_id_get_author() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/authors/4").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().json("[{'id':4,'name':'Scott Hanselman','country':'USA'}]"));
     }
 
     @Test
-    public void addAuthorById() throws Exception {
+    public void when_call_post_authors_get_author_updated() throws Exception {
         Author newAuthor = Author.builder().name("Steven King").country("England").build();
 
         mvc.perform(MockMvcRequestBuilders.post("/authors").

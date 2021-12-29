@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @Component
 public class AuthorDAService {
     private List<Author> authors;
-    private int MIN_AUTHOR_INDEX;
+    private static int MIN_AUTHOR_INDEX = 0;
 
     public AuthorDAService(List<Author> authors){
         if(this.authors == null)
@@ -27,8 +27,7 @@ public class AuthorDAService {
 
     public Author save(Author author) {
         Optional<Author> authorMaxId = authors.stream().max(Comparator.comparing(Author::getId));
-        MIN_AUTHOR_INDEX = 1;
-        int lastIndex = authorMaxId.isPresent() ? authorMaxId.get().getId() : MIN_AUTHOR_INDEX;
+        int lastIndex = authorMaxId.map(Author::getId).orElseGet(() -> MIN_AUTHOR_INDEX);
         author.setId(++lastIndex);
         authors.add(author);
         return author;
