@@ -3,7 +3,6 @@ package com.mycompany.book.controller;
 import com.mycompany.book.domain.logic.IEntityDAService;
 import com.mycompany.book.domain.model.Author;
 import com.mycompany.book.domain.model.Book;
-import com.mycompany.book.service.author.AuthorDAService;
 import com.mycompany.book.service.BookDAService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,10 +35,15 @@ public class BookController {
 
     @GetMapping("/books/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Book> findById(@PathVariable int id) {
-        return bookDAService.findById(id);
+    public Book findById(@PathVariable int id) {
+        return bookDAService.getById(id);
     }
 
+    @GetMapping("/booksWithDependencies/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Book findByIdWithDependencies(@PathVariable int id) throws IOException {
+        return bookDAService.getWithDependencies(id);
+    }
 
     @GetMapping("/authors")
     @ResponseStatus(HttpStatus.OK)

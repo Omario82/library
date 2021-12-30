@@ -15,6 +15,6 @@ import org.springframework.stereotype.Component;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuthorApi implements IHaveUri {
+public class AuthorApiInfo implements IHaveUri {
     private String uri;
 }

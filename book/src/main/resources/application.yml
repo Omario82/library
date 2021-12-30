@@ -27,3 +27,10 @@ eureka:
 api:
   author:
     uri: http://localhost:8080
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+  file: C:/temp/log/bookApi.log

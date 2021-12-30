@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class AuthorApplication implements CommandLineRunner {
+
     @Autowired
     private IEntityDAService<Author> authorDAService;
 
@@ -20,7 +21,7 @@ public class AuthorApplication implements CommandLineRunner {
         SpringApplication.run(AuthorApplication.class, args);
     }
 
-    private static List<Author> setupAuthorsData() {
+    private void setupData() {
         List<Author> authors = new ArrayList<>();
         authors.add(new Author(1,"J.D. Salinger","USA"));
         authors.add(new Author(2,"F. Scott. Fitzgerald","USA"));
@@ -30,7 +31,8 @@ public class AuthorApplication implements CommandLineRunner {
         authors.add(new Author(6,"Pranav Rastogi","India"));
         authors.add(new Author(7,"Todd Miranda","USA"));
         authors.add(new Author(8,"Christian Wenz","USA"));
-        return authors;
+
+        authors.stream().map(e -> authorDAService.save(e)).collect(Collectors.toList());
     }
 
     /**
@@ -41,7 +43,6 @@ public class AuthorApplication implements CommandLineRunner {
      */
     @Override
     public void run(String... args) throws Exception {
-        List<Author>  authors = setupAuthorsData();
-        authors.stream().map(e -> authorDAService.save(e)).collect(Collectors.toList());
+        setupData();
     }
 }

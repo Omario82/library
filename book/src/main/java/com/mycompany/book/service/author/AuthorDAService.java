@@ -5,7 +5,7 @@ import com.mycompany.book.service.common.ApiConsumer;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AuthorDAService extends ApiConsumer<Author, AuthorApi> {
+public class AuthorDAService extends ApiConsumer<Author, AuthorApiInfo> {
 
     public AuthorDAService() {
         super(Author[].class);
