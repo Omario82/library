@@ -5,7 +5,6 @@ import com.mycompany.book.domain.model.Author;
 import com.mycompany.book.domain.model.Book;
 import com.mycompany.book.domain.model.BookAuthor;
 import com.mycompany.book.service.common.EntityDAService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,16 +13,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-@Slf4j
 public class BookDAService extends EntityDAService<Book> {
     @Autowired
     private IEntityDAService<BookAuthor> booksAuthorsDAService;
     @Autowired
     private IEntityDAService<Author> authorsDAService;
-
-    public BookDAService(List<Book> books) {
-        super(books);
-    }
 
     public Book getWithDependencies(int bookId) throws IOException {
         Book resutl = getById(bookId);

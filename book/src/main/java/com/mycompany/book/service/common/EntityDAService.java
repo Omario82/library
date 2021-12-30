@@ -12,16 +12,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class EntityDAService<TEntity extends IHaveId> implements IEntityDAService<TEntity> {
     private static int MIN_OBJECT_INDEX = 0;
-    protected List<TEntity> entitiesStore;
-
-    public EntityDAService(List<TEntity> entitiesStore) {
-        if (this.entitiesStore == null)
-            this.entitiesStore = new ArrayList<>();
-        if (entitiesStore != null){
-            this.entitiesStore.addAll(entitiesStore);
-            log.info(String.format("%d books were loaded on %s", entitiesStore.size(), getClass().getSimpleName()));
-        }
-    }
+    protected List<TEntity> entitiesStore = new ArrayList<>();
 
     public List<TEntity> getAll() {
         return entitiesStore;

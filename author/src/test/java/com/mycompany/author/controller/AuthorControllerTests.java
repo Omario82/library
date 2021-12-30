@@ -21,6 +21,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -32,12 +33,12 @@ public class AuthorControllerTests {
 
     @Before
     public void setup() {
-        List<Author> authors = setupAuthorsData();
-        AuthorDAService authorDAService = new AuthorDAService(authors);
+        AuthorDAService authorDAService = new AuthorDAService();
+        setupAuthorsData(authorDAService);
         this.mvc = MockMvcBuilders.standaloneSetup(new AuthorController(authorDAService)).build();
     }
 
-    private List<Author> setupAuthorsData() {
+    private void setupAuthorsData(AuthorDAService authorDAService) {
         List<Author> authors = new ArrayList<>();
         authors.add(new Author(1,"J.D. Salinger","USA"));
         authors.add(new Author(2,"F. Scott. Fitzgerald","USA"));
@@ -47,7 +48,8 @@ public class AuthorControllerTests {
         authors.add(new Author(6,"Pranav Rastogi","India"));
         authors.add(new Author(7,"Todd Miranda","USA"));
         authors.add(new Author(8,"Christian Wenz","USA"));
-        return authors;
+
+        authors.stream().map(authorDAService::save).collect(Collectors.toList());
     }
 
     @Test

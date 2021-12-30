@@ -2,6 +2,7 @@ package com.mycompany.author;
 
 import com.mycompany.author.domain.logic.IEntityDAService;
 import com.mycompany.author.domain.model.Author;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @SpringBootApplication
+@Slf4j
 public class AuthorApplication implements CommandLineRunner {
 
     @Autowired
@@ -33,6 +35,7 @@ public class AuthorApplication implements CommandLineRunner {
         authors.add(new Author(8,"Christian Wenz","USA"));
 
         authors.stream().map(e -> authorDAService.save(e)).collect(Collectors.toList());
+        log.info(String.format("%d authors were loaded on AuthorDAService", authors.size()));
     }
 
     /**

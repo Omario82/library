@@ -3,6 +3,7 @@ package com.mycompany.book;
 import com.mycompany.book.domain.logic.IEntityDAService;
 import com.mycompany.book.domain.model.Book;
 import com.mycompany.book.domain.model.BookAuthor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @SpringBootApplication
+@Slf4j
 public class BookApplication implements CommandLineRunner {
 
     @Autowired
@@ -33,6 +35,7 @@ public class BookApplication implements CommandLineRunner {
         books.add(new Book(7,"Professional ASP.NET 4.5 in C# and VB"));
 
         books.stream().map(bookDAService::save).collect(Collectors.toList());
+        log.info(String.format("%d books were loaded on AuthorDAService", books.size()));
 
         List<BookAuthor> booksAuthors = new ArrayList<>();
         booksAuthors.add(new BookAuthor(1,1,1));
@@ -48,6 +51,8 @@ public class BookApplication implements CommandLineRunner {
         booksAuthors.add(new BookAuthor(11,7,8));
 
         booksAuthors.stream().map(booksAuthorsDAService::save).collect(Collectors.toList());
+        log.info(String.format("%d booksAuthors were loaded on AuthorDAService", booksAuthors.size()));
+
     }
 
     /**
