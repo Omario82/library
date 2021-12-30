@@ -1,7 +1,7 @@
-spring.application.name=author
+spring.application.name=book
 
-spring.cloud.config.uri=http://localhost:8080
-server.port=8080
+spring.cloud.config.uri=http://localhost:8081
+server.port=8081
 management.security.enabled=false
 spring.cloud.bus.enabled=false
 
@@ -9,3 +9,5 @@ eureka.client.enabled=false
 spring.cloud.discovery.enabled=false
 eureka.client.register-with-eureka=false
 eureka.client.fetch-registry=false
+
+api.authorUri=http://localhost:8080

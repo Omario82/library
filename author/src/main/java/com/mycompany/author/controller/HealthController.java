@@ -1,7 +1,7 @@
 package com.mycompany.author.controller;
 
-import com.mycompany.author.domain.HealthHigh;
-import com.mycompany.author.domain.HealthLow;
+import com.mycompany.author.domain.model.HealthHigh;
+import com.mycompany.author.domain.model.Health;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class HealthController {
     final private String UP = "UP";
     final private String APP_VERSION = "1.0.0";
+    final private String DOMAINE_NAME = "Author";
+
     @GetMapping("/health")
-    public String healthCheck() {
-        return "Up";
+    public Health healthCheck() {
+        return healthLowCheck();
     }
 
     @GetMapping("/healthHigh")
@@ -24,7 +26,7 @@ public class HealthController {
     }
 
     @GetMapping("/healthLow")
-    public HealthLow healthLowCheck() {
-        return HealthLow.builder().status(UP).appVersion(APP_VERSION).build();
+    public Health healthLowCheck() {
+        return Health.builder().status(UP).appVersion(APP_VERSION).domain(DOMAINE_NAME).build();
     }
 }

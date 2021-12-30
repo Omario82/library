@@ -1,6 +1,7 @@
 package com.mycompany.author.controller;
 
-import com.mycompany.author.domain.Author;
+import com.mycompany.author.domain.logic.IEntityDAService;
+import com.mycompany.author.domain.model.Author;
 import com.mycompany.author.service.AuthorDAService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,26 +12,28 @@ import java.util.List;
 @RestController
 public class AuthorController {
     @Autowired
-    private AuthorDAService authorDAService;
+    private IEntityDAService<Author> authorDAService;
 
-    public AuthorController(AuthorDAService authorDAService){
+    public AuthorController(IEntityDAService<Author> authorDAService){
         this.authorDAService = authorDAService;
     }
 
     public AuthorController(){ }
 
     @GetMapping("/authors")
-    public List<Author> allAuthors() {
-        return authorDAService.allAuthors();
+    @ResponseStatus(HttpStatus.OK)
+    public List<Author> all() {
+        return authorDAService.getAll();
     }
 
     @PostMapping("/authors")
     @ResponseStatus(HttpStatus.CREATED)
-    public Author addAuthor(@RequestBody Author author) {
+    public Author add(@RequestBody Author author) {
         return authorDAService.save(author);
     }
 
     @GetMapping("/authors/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public List<Author> findById(@PathVariable int id) {
         return authorDAService.findById(id);
     }

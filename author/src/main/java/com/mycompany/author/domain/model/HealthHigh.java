@@ -1,8 +1,15 @@
-package com.mycompany.author.domain;
+package com.mycompany.author.domain.model;
 
 public class HealthHigh {
     private String status;
     private String appVersion;
+
+    public HealthHigh(){}
+
+    public HealthHigh(String status, String appVersion){
+        this.status = status;
+        this.appVersion = appVersion;
+    }
 
     public String getStatus() { return this.status; }
 

@@ -4,7 +4,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mycompany.author.domain.Author;
+import com.mycompany.author.domain.model.Author;
 import com.mycompany.author.service.AuthorDAService;
 import org.junit.Before;
 import org.junit.Test;
