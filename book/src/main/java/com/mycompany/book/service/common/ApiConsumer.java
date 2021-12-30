@@ -1,4 +1,4 @@
-package com.mycompany.book.service.author;
+package com.mycompany.book.service.common;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mycompany.book.domain.logic.IEntityDAService;

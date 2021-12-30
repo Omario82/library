@@ -1,4 +1,4 @@
-package com.mycompany.author.domain.model;
+package com.mycompany.book.domain.model;
 
 import lombok.*;
 
@@ -10,5 +10,5 @@ import lombok.*;
 public class Health {
     private String status;
     private String appVersion;
-    private String domainName;
+    private String domain;
 }

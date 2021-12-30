@@ -1,4 +1,4 @@
-package book.domain.model;
+package com.mycompany.book.domain.model;
 
 import lombok.*;
 

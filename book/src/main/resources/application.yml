@@ -1,13 +1,29 @@
-spring.application.name=book
+spring:
+  application:
+    name: book
 
-spring.cloud.config.uri=http://localhost:8081
-server.port=8081
-management.security.enabled=false
-spring.cloud.bus.enabled=false
+  cloud:
+    config:
+      uri: http://localhost:8081
 
-eureka.client.enabled=false
-spring.cloud.discovery.enabled=false
-eureka.client.register-with-eureka=false
-eureka.client.fetch-registry=false
+    bus:
+      enabled: false
 
-api.authorUri=http://localhost:8080
+    discovery:
+      enabled: false
+server:
+  port: 8081
+
+management:
+  security:
+    enabled: false
+
+eureka:
+  client:
+    enabled: false
+    register-with-eureka: false
+    fetch-registry: false
+
+api:
+  author:
+    uri: http://localhost:8080

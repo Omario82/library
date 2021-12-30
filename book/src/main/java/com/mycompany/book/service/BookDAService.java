@@ -1,12 +1,14 @@
-package book.service;
+package com.mycompany.book.service;
 
-import book.domain.logic.IEntityDAService;
-import book.domain.model.Book;
+import com.mycompany.book.domain.logic.IEntityDAService;
+import com.mycompany.book.domain.model.Book;
+import org.springframework.stereotype.Component;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class BookDAService implements IEntityDAService<Book> {
     private List<Book> books;
     private static int MIN_AUTHOR_INDEX = 0;

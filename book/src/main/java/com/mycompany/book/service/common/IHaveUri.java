@@ -1,4 +1,4 @@
-package com.mycompany.book.service.author;
+package com.mycompany.book.service.common;
 
 
 public interface IHaveUri {
