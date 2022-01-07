@@ -1,12 +1,9 @@
 package com.mycompany.book.service.common;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mycompany.domain.logic.IEntityDAService;
 import com.mycompany.domain.logic.IHaveId;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
