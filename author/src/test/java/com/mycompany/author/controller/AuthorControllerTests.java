@@ -4,8 +4,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mycompany.author.domain.model.Author;
 import com.mycompany.author.service.AuthorDAService;
+import com.mycompany.domain.model.Author;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -74,7 +74,7 @@ public class AuthorControllerTests {
     public void when_call_get_authors_by_id_get_author() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/authors/4").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().json("[{'id':4,'name':'Scott Hanselman','country':'USA'}]"));
+                .andExpect(content().json("{'id':4,'name':'Scott Hanselman','country':'USA'}"));
     }
 
     @Test

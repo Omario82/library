@@ -1,6 +1,6 @@
-package com.mycompany.book.domain.model;
+package com.mycompany.domain.model;
 
-import com.mycompany.book.service.common.IHaveId;
+import com.mycompany.domain.logic.IHaveId;
 import lombok.*;
 
 @Getter

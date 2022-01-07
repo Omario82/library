@@ -1,6 +1,6 @@
 package com.mycompany.book.controller;
 
-import com.mycompany.book.domain.model.Health;
+import com.mycompany.domain.model.Health;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

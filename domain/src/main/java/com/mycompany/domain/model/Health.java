@@ -1,4 +1,4 @@
-package com.mycompany.author.domain.model;
+package com.mycompany.domain.model;
 
 import lombok.*;
 

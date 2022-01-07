@@ -1,13 +1,11 @@
 package com.mycompany.book.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mycompany.book.domain.logic.IEntityDAService;
-import com.mycompany.book.domain.model.Author;
-import com.mycompany.book.domain.model.Book;
-import com.mycompany.book.domain.model.BookAuthor;
 import com.mycompany.book.service.BookAuthorDAService;
 import com.mycompany.book.service.BookDAService;
 import com.mycompany.book.service.author.AuthorDAService;
+import com.mycompany.domain.logic.IEntityDAService;
+import com.mycompany.domain.model.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

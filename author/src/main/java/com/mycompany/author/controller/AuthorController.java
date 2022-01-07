@@ -1,8 +1,7 @@
 package com.mycompany.author.controller;
 
-import com.mycompany.author.domain.logic.IEntityDAService;
-import com.mycompany.author.domain.model.Author;
-import com.mycompany.author.service.AuthorDAService;
+import com.mycompany.domain.logic.IEntityDAService;
+import com.mycompany.domain.model.Author;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +33,7 @@ public class AuthorController {
 
     @GetMapping("/authors/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Author> findById(@PathVariable int id) {
-        return authorDAService.findById(id);
+    public Author findById(@PathVariable int id) {
+        return authorDAService.getById(id);
     }
 }

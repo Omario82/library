@@ -32,5 +32,5 @@ logging:
   level:
     org:
       springframework:
-        web: DEBUG
+        web: INFO
   file: C:/temp/log/bookApi.log

@@ -1,10 +1,8 @@
 package com.mycompany.book.service;
 
-import com.mycompany.book.domain.logic.IEntityDAService;
-import com.mycompany.book.domain.model.Author;
-import com.mycompany.book.domain.model.Book;
-import com.mycompany.book.domain.model.BookAuthor;
 import com.mycompany.book.service.common.EntityDAService;
+import com.mycompany.domain.logic.IEntityDAService;
+import com.mycompany.domain.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

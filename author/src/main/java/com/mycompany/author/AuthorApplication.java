@@ -1,7 +1,7 @@
 package com.mycompany.author;
 
-import com.mycompany.author.domain.logic.IEntityDAService;
-import com.mycompany.author.domain.model.Author;
+import com.mycompany.domain.logic.IEntityDAService;
+import com.mycompany.domain.model.Author;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

@@ -1,4 +1,4 @@
-package com.mycompany.book.service.common;
+package com.mycompany.domain.logic;
 
 public interface IHaveId {
     int getId();

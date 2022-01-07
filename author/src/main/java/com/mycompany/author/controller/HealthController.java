@@ -1,7 +1,7 @@
 package com.mycompany.author.controller;
 
-import com.mycompany.author.domain.model.HealthHigh;
-import com.mycompany.author.domain.model.Health;
+import com.mycompany.domain.model.HealthHigh;
+import com.mycompany.domain.model.Health;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
